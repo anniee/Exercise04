@@ -20,3 +20,6 @@ def do_weird_number_stuff(upper_boundary):
 try_this = get_user_input()
 do_weird_number_stuff(try_this)
 
+#This was looping infinitely when we tried to wrap the get 
+#input action in the same line as the weird number method call. Investigate why?
+
