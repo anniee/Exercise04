@@ -1,0 +1,1 @@
+exercises from Thursday the 15th
