@@ -178,10 +178,8 @@ def custom_append(input_list, value):
         like input_list.append(value), should add the value to the end of the list
         and return nothing
     """
-    counter = 0
-    for each in input_list:
-        counter += 1
-    input_list[counter:] = [value]
+
+    input_list[custom_len(input_list):] = [value]
 
 def custom_extend(input_list, second_list):
     """
