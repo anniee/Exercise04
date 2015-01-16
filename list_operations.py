@@ -125,9 +125,13 @@ def delete_third_and_seventh(input_list):
     #After the first line executes, the index numbers change so we need to take
     #that into account.
     #If we count backwards, the index numbers won't be affected by the 
-    #previous line's deletion. 
+    #previous line's deletion.
+    
+    if len(input_list) > 7:
+        del input_list[6]
+
     del input_list[2]
-    del input_list[7]
+
     return input_list
 
 def delete_middle(input_list):
@@ -150,7 +154,7 @@ In this section you will implement your own versions of the standard list method
 You should use only the primitive operations from Part 1 and 2 in your implementations.
 For loops are also allowed, such as the following:
     for element in some_list:
-        # Do something with element
+        # D    input_list[0] = 42o something with element
 
 Each custom method imitates a built-in list method, as described by the docstring
 for each function. Play with the built-in methods in the Python REPL to get a feel
@@ -162,7 +166,11 @@ def custom_len(input_list):
     """
         like len(input_list), should return the number of items in the list
     """
-    pass
+    counter = 0
+    for each_item in input_list:
+        counter += 1
+    return counter
+
 
 # For the next four functions, get clever using slice operations described in the first half
 def custom_append(input_list, value):
@@ -170,28 +178,38 @@ def custom_append(input_list, value):
         like input_list.append(value), should add the value to the end of the list
         and return nothing
     """
-    pass
+    counter = 0
+    for each in input_list:
+        counter += 1
+    input_list[counter:] = [value]
 
 def custom_extend(input_list, second_list):
     """
         like input_list.extend(second_list), should append every item in the second 
         list to the end of the first list and return nothing
     """
-    pass
+    for each in second_list:
+        custom_append(input_list, each)    
 
 def custom_insert(input_list, index, value):
     """
         like input_list.insert(index, value), should insert (not replace) the value
         at the specified index of the input list and return nothing
     """
-    pass
+    input_list[index:index] = [value]
 
 def custom_remove(input_list, value):
     """
         like input_list.remove(value), should remove the first item of the 
         value specified and return nothing
     """
-    pass
+    counter = 0
+    for each in input_list:
+        if each == value:
+            del input_list[counter]
+            return
+        else:
+            counter += 1
 
 def custom_pop(input_list):
     """
